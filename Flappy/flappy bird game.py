@@ -1,4 +1,3 @@
-
 import pygame, sys, random
 
 
@@ -82,7 +81,6 @@ screen = pygame.display.set_mode((288, 512))
 Clock = pygame.time.Clock()
 game_font = pygame.font.Font("assets/FlappyBirdy.ttf", 40)
 
-# game var
 gravity = 0.25
 bird_movement = 0
 game_active = True
@@ -105,9 +103,6 @@ bird_rect = bird_surface.get_rect(center=(50, 512 / 2))
 
 BIRDFLAP = pygame.USEREVENT + 1
 pygame.time.set_timer(BIRDFLAP, 200)
-
-# bird_surface = pygame.image.load('bluebird-midflap.png').convert_alpha()
-# bird_rect = bird_surface.get_rect(center = (50,512/2))
 
 pipe_surface = pygame.image.load("assets/pipe-green.png")
 pipe_list = []
@@ -154,14 +149,12 @@ while True:
     screen.blit(bg_surface, (0, 0))
 
     if game_active:
-        # bird
         bird_movement += gravity
         rotated_bird = rotate_bird(bird_surface)
         bird_rect.centery += bird_movement
         screen.blit(rotated_bird, bird_rect)
         game_active = check_collision(pipe_list)
 
-        # pipes
         pipe_list = move_pipe(pipe_list)
         draw_pipes(pipe_list)
 
@@ -176,7 +169,6 @@ while True:
         high_score = update_score(score, high_score)
         score_display("game_over")
 
-    # floor
     floor_x_pos -= 1
     draw_floor()
     if floor_x_pos <= -200:

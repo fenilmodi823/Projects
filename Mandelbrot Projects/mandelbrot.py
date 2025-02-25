@@ -21,15 +21,12 @@ def generate_mandelbrot(xmin, xmax, ymin, ymax, width, height, max_iter=100):
     
     return mandelbrot_set
 
-# Define parameters
 xmin, xmax, ymin, ymax = -2.0, 1.0, -1.5, 1.5
 width, height = 1000, 1000
 max_iter = 200
 
-# Generate the Mandelbrot set
 mandelbrot_image = generate_mandelbrot(xmin, xmax, ymin, ymax, width, height, max_iter)
 
-# Plot the fractal
 plt.figure(figsize=(10, 10))
 plt.imshow(mandelbrot_image, extent=(xmin, xmax, ymin, ymax), cmap='inferno', origin='lower')
 plt.colorbar(label='Iterations')
