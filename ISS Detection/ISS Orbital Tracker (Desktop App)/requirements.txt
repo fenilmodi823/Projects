@@ -1,5 +1,0 @@
-sscws
-matplotlib
-packaging
-numpy
-cd
